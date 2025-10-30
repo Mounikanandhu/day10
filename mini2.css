@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f7fa;
+  margin-top: 80px;
+}
+
+h2 {
+  color: #333;
+}
+
+.container {
+  display: inline-block;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="file"] {
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.preview {
+  margin-top: 20px;
+  width: 250px;
+  height: 250px;
+  border: 2px dashed #007bff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.preview p {
+  color: #777;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}

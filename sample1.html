@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Drag and Drop</title> 
+<style> 
+#dragBox { 
+width: 100px; 
+height: 100px; 
+background-color: blue; 
+color: white; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+cursor: grab; 
+position: absolute; 
+top: 50px; 
+left: 50px; 
+} 
+#dropZone { 
+width: 200px; 
+height: 200px; 
+border: 2px dashed black; 
+display: flex;
+align-items: center; 
+justify-content: center; 
+margin-top: 150px; 
+text-align: center; 
+} 
+</style> 
+</head> 
+<body> 
+<h2>Drag the Box into the Drop Zone</h2> 
+<div id="dragBox" draggable="true">Drag Me</div> 
+<div id="dropZone">Drop Here</div> 
+<script> 
+let dragBox = document.getElementById("dragBox"); 
+let dropZone = document.getElementById("dropZone"); 
+dragBox.addEventListener("dragstart", function(event) { 
+event.dataTransfer.setData("text", event.target.id); 
+}); 
+ 
+dropZone.addEventListener("dragover", function(event) { 
+event.preventDefault(); // Allows the drop 
+}); 
+ 
+dropZone.addEventListener("drop", function(event) { 
+event.preventDefault(); 
+let draggedElement = 
+document.getElementById(event.dataTransfer.getData("text")); 
+dropZone.appendChild(draggedElement); 
+dragBox.style.position = "static"; 
+dropZone.innerHTML = "<b>Item Dropped Successfully!</b>"; 
+}); 
+</script> 
+</body> 
+</html> 
